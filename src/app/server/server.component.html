@@ -1,0 +1,32 @@
+<div class="card my-5">
+  <div class="card-header">{{ server.name }}</div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{ server.type }}</p>
+      <!-- <footer class="blockquote-footer">{{ server.status }}</footer> -->
+      <div [ngSwitch]="server.status">
+        <footer
+          *ngSwitchCase="'Online'"
+          style="color: green"
+          class="blockquote-footer"
+        >
+          Online
+        </footer>
+        <footer
+          *ngSwitchCase="'Offline'"
+          style="color: red"
+          class="blockquote-footer"
+        >
+          Offline
+        </footer>
+        <footer
+          *ngSwitchCase="'Running'"
+          style="color: orange"
+          class="blockquote-footer"
+        >
+          Running
+        </footer>
+      </div>
+    </blockquote>
+  </div>
+</div>
