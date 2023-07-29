@@ -11,6 +11,10 @@ import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import { LoggingService } from './logging-service.service';
+import { AccountService } from './accounts.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
     EvenComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
+    AccountComponent,
+    NewAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,7 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [LoggingService, AccountService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
