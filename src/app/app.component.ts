@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AccountService } from './accounts.service';
 
-// decorators are attached with @
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  intervalNum;
-  
-  intervalFired(num: number) {
-    this.intervalNum = num;
+export class AppComponent implements OnInit {
+  accounts: { name: string; status: string }[];
+  constructor(private accountService: AccountService) {}
+
+  ngOnInit(): void {
+    this.accounts = this.accountService.accounts;
   }
 }
