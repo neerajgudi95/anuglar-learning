@@ -15,6 +15,10 @@ import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { LoggingService } from './logging-service.service';
 import { AccountService } from './accounts.service';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { UsersService } from './users.service';
+import { CounterService } from './counter.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,8 @@ import { AccountService } from './accounts.service';
     BetterHighlightDirective,
     AccountComponent,
     NewAccountComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ import { AccountService } from './accounts.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [LoggingService, AccountService],
+  providers: [LoggingService, AccountService, UsersService, CounterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
