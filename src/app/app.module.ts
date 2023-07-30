@@ -19,6 +19,20 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
 import { UsersService } from './users.service';
 import { CounterService } from './counter.service';
+import { HomeComponent } from './home/home.component';
+import { RoutingUsersComponent } from './routingusers/users.component';
+import { RoutingServersComponent } from './routingservers/servers.component';
+import { RoutingUserComponent } from './routingusers/user/user.component';
+import { EditServerComponent } from './routingservers/edit-server/edit-server.component';
+import { ServersService } from './routingservers/servers.service';
+import { RoutingServerComponent } from './routingservers/server/server.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'users', component: RoutingUsersComponent },
+  { path: 'servers', component: RoutingServersComponent },
+  { path: '', component: HomeComponent },
+];
 
 @NgModule({
   declarations: [
@@ -34,14 +48,27 @@ import { CounterService } from './counter.service';
     NewAccountComponent,
     ActiveUsersComponent,
     InactiveUsersComponent,
+    HomeComponent,
+    RoutingUsersComponent,
+    RoutingUserComponent,
+    RoutingServersComponent,
+    RoutingServerComponent,
+    EditServerComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [LoggingService, AccountService, UsersService, CounterService],
+  providers: [
+    LoggingService,
+    AccountService,
+    UsersService,
+    CounterService,
+    ServersService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
