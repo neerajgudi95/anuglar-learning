@@ -26,13 +26,10 @@ import { RoutingUserComponent } from './routingusers/user/user.component';
 import { EditServerComponent } from './routingservers/edit-server/edit-server.component';
 import { ServersService } from './routingservers/servers.service';
 import { RoutingServerComponent } from './routingservers/server/server.component';
-import { Routes, RouterModule } from '@angular/router';
-
-const appRoutes: Routes = [
-  { path: 'users', component: RoutingUsersComponent },
-  { path: 'servers', component: RoutingServersComponent },
-  { path: '', component: HomeComponent },
-];
+import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './authguard/auth.service';
+import { AuthGuard } from './authguard/auth-guard.service';
+import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +57,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
   ],
   providers: [
     LoggingService,
@@ -68,6 +65,9 @@ const appRoutes: Routes = [
     UsersService,
     CounterService,
     ServersService,
+    AuthService,
+    AuthGuard,
+    CanDeactivateGuard,
   ],
   bootstrap: [AppComponent],
 })
