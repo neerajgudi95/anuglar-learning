@@ -30,6 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './authguard/auth.service';
 import { AuthGuard } from './authguard/auth-guard.service';
 import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-guard.service';
+import { ObsHomeComponent } from './observables/obs-home/obs-home.component';
+import { ObsUsersComponent } from './observables/obs-users/obs-users.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-
     RoutingServersComponent,
     RoutingServerComponent,
     EditServerComponent,
+    ObsHomeComponent,
+    ObsUsersComponent,
   ],
   imports: [
     BrowserModule,
