@@ -32,6 +32,7 @@ import { AuthGuard } from './authguard/auth-guard.service';
 import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-guard.service';
 import { ObsHomeComponent } from './observables/obs-home/obs-home.component';
 import { ObsUsersComponent } from './observables/obs-users/obs-users.component';
+import { TdFormComponent } from './forms/td-form/td-form.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ObsUsersComponent } from './observables/obs-users/obs-users.component';
     EditServerComponent,
     ObsHomeComponent,
     ObsUsersComponent,
+    TdFormComponent,
   ],
   imports: [
     BrowserModule,

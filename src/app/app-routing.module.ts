@@ -11,6 +11,7 @@ import { AuthGuard } from './authguard/auth-guard.service';
 import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-guard.service';
 import { ObsHomeComponent } from './observables/obs-home/obs-home.component';
 import { ObsUsersComponent } from './observables/obs-users/obs-users.component';
+import { TdFormComponent } from './forms/td-form/td-form.component';
 
 const appRoutes: Routes = [
   // { path: '', component: HomeComponent },
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   //   ],
   // },
   { path: 'obsHome', component: ObsHomeComponent },
+  { path: 'td-forms', component: TdFormComponent },
   { path: 'obsUsers/:id', component: ObsUsersComponent },
   { path: 'not-found', component: ErrorPageComponent },
   { path: '**', redirectTo: '/not-found' },
