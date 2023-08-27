@@ -33,6 +33,10 @@ import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-
 import { ObsHomeComponent } from './observables/obs-home/obs-home.component';
 import { ObsUsersComponent } from './observables/obs-users/obs-users.component';
 import { TdFormComponent } from './forms/td-form/td-form.component';
+import { ShortenPipe } from './shorten.pipe';
+import { FilterPipe } from './filter.pipe';
+import { ReversePipe } from './reverse.pipe';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,10 @@ import { TdFormComponent } from './forms/td-form/td-form.component';
     ObsHomeComponent,
     ObsUsersComponent,
     TdFormComponent,
+    ShortenPipe,
+    FilterPipe,
+    ReversePipe,
+    SortPipe,
   ],
   imports: [
     BrowserModule,
