@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -72,6 +73,7 @@ import { SortPipe } from './sort.pipe';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     LoggingService,

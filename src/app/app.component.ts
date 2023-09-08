@@ -1,68 +1,42 @@
-// import { Component, OnInit } from '@angular/core';
-// import { AccountService } from './accounts.service';
-// import { UsersService } from './users.service';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css'],
-// })
-// export class AppComponent implements OnInit {
-//   activeUsers: string[];
-//   inactiveUsers: string[];
-
-//   constructor(private usersService: UsersService) {}
-//   ngOnInit(): void {
-//     this.activeUsers = this.usersService.activeUsers;
-//     this.inactiveUsers = this.usersService.inactiveUsers;
-//   }
-// }
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { HTTPService } from './http.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  servers = [
-    {
-      instanceType: 'medium',
-      name: 'Production Server',
-      status: 'stable',
-      started: new Date(15, 1, 2017),
-    },
-    {
-      instanceType: 'large',
-      name: 'User Database',
-      status: 'stable',
-      started: new Date(15, 1, 2017),
-    },
-    {
-      instanceType: 'small',
-      name: 'Development Server',
-      status: 'offline',
-      started: new Date(15, 1, 2017),
-    },
-    {
-      instanceType: 'small',
-      name: 'Testing Environment Server',
-      status: 'stable',
-      started: new Date(15, 1, 2017),
-    },
-  ];
-  filterStatus = '';
-  getStatusClasses(server: {
-    instanceType: string;
-    name: string;
-    status: string;
-    started: Date;
-  }) {
-    return {
-      'list-group-item-success': server.status === 'stable',
-      'list-group-item-warning': server.status === 'offline',
-      'list-group-item-danger': server.status === 'critical',
-    };
+export class AppComponent implements OnInit {
+  loadedPosts = [];
+  isFetching = false;
+  constructor(private http: HttpClient, private httpService: HTTPService) {}
+
+  ngOnInit() {
+    this.onFetchPosts();
+  }
+
+  onCreatePost(postData: { title: string; content: string }) {
+    // Send Http request
+    this.httpService.sendPosts(postData).subscribe(() => {
+      this.onFetchPosts();
+    });
+  }
+
+  onFetchPosts() {
+    // Send Http request
+    this.isFetching = true;
+    this.httpService.fetchPosts().subscribe((posts) => {
+      this.loadedPosts = posts;
+      this.isFetching = false;
+    });
+  }
+
+  onClearPosts() {
+    // Send Http request
+    this.httpService.clearPosts().subscribe(() => {
+      this.loadedPosts = [];
+    });
   }
 }

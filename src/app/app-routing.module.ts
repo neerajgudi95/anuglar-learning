@@ -12,9 +12,10 @@ import { CanDeactivateGuard } from './routingservers/edit-server/can-deactivate-
 import { ObsHomeComponent } from './observables/obs-home/obs-home.component';
 import { ObsUsersComponent } from './observables/obs-users/obs-users.component';
 import { TdFormComponent } from './forms/td-form/td-form.component';
+import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
-  // { path: '', component: HomeComponent },
+  { path: '', component: AppComponent },
   // {
   //   path: 'users',
   //   component: RoutingUsersComponent,
